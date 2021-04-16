@@ -82,6 +82,11 @@ public class Forage extends ListenerAdapter {
 					if(r.nextInt(1000) > 500) get.add(Item.Squid);
 					if(r.nextInt(1000) > 900) get.add(Item.Chicken);
 					if(r.nextInt(1000) > 950) get.add(Item.PrimeMeat);
+					
+					if(r.nextInt(1000) > 100) get.add(Item.MysticalMushroom);
+					if(r.nextInt(1000) > 500) get.add(Item.SoupFlower);
+					if(r.nextInt(1000) > 900) get.add(Item.Anchovy);
+					if(r.nextInt(1000) > 950) get.add(Item.SoupEssence);
 					break;
 				
 				}

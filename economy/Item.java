@@ -20,7 +20,10 @@ public enum Item {
 	ItemType.Material), ClamChowder(1700,"Clam_Chowder",ItemType.Soup),Oil(50,"Oil",
 	ItemType.Material), SeaweedSoup(1400, "Seaweed_Soup", ItemType.Soup), TomatoSoup(1400,
 	"Tomato_Soup",ItemType.Soup),VegetableSoup(2050,"Vegetable_Soup",ItemType.Soup),MeatSoup
-	(2050,"Meat_Soup",ItemType.Soup),ForestPermit(10000,"Forest_Permit",ItemType.Usable)
+	(2050,"Meat_Soup",ItemType.Soup),ForestPermit(10000,"Forest_Permit",ItemType.Usable),
+	MysticalMushroom(150,"Mystical_Mushroom",ItemType.Material),SoupFlower(500,"Soup_Flower",
+	ItemType.Material),SoupEssence(1000,"Soup_Essence",ItemType.Material),Anchovy(250,"Anchovy",
+	ItemType.Material)
 	;
 	
 	private int sellprice;
