@@ -39,7 +39,8 @@ public class Main {
 			.setStatus(OnlineStatus.ONLINE)
 			.setActivity(Activity.playing(".help"))
 			.addEventListeners(new Register(), new Forage(), new Inventory(), new Help(),
-					new Craft(), new Bal(), new Sell(), new Recipes(), new Store(), new Buy())
+					new Craft(), new Bal(), new Sell(), new Recipes(), new Store(), new Buy()
+					  , new Use())
 			.build();
 		
 	}
