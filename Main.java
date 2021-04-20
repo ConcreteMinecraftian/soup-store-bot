@@ -6,13 +6,18 @@ import javax.security.auth.login.LoginException;
 
 import com.concreteminecraftian.soupstorebot.economy.Account;
 import com.concreteminecraftian.soupstorebot.economy.Bal;
+import com.concreteminecraftian.soupstorebot.economy.Beg;
+import com.concreteminecraftian.soupstorebot.economy.Daily;
 import com.concreteminecraftian.soupstorebot.economy.Forage;
 import com.concreteminecraftian.soupstorebot.economy.Inventory;
 import com.concreteminecraftian.soupstorebot.economy.Item;
+import com.concreteminecraftian.soupstorebot.economy.JSONHashMapConverter;
 import com.concreteminecraftian.soupstorebot.economy.Register;
+import com.concreteminecraftian.soupstorebot.economy.Use;
 import com.concreteminecraftian.soupstorebot.economy.crafting.Craft;
 import com.concreteminecraftian.soupstorebot.economy.crafting.Recipe;
 import com.concreteminecraftian.soupstorebot.economy.crafting.Recipes;
+import com.concreteminecraftian.soupstorebot.economy.soup_battles.BattleManager;
 import com.concreteminecraftian.soupstorebot.economy.store.Buy;
 import com.concreteminecraftian.soupstorebot.economy.store.Sell;
 import com.concreteminecraftian.soupstorebot.economy.store.Store;
@@ -32,15 +37,17 @@ public class Main {
 		
 		AddRecipes();
 		setPrefix(".");
+		accounts = JSONHashMapConverter.load();
 		
 		// TODO: add back cooldown once bot hosted
 		
-		JDABuilder.createDefault(--TOKEN--)
+		JDABuilder.createDefault("ODI5OTgzNDM4MjYxMDU5NjA0.YHAEUA.pnI5qYv9ZFCuHE1js_6wdntUQ_Y")
 			.setStatus(OnlineStatus.ONLINE)
 			.setActivity(Activity.playing(".help"))
 			.addEventListeners(new Register(), new Forage(), new Inventory(), new Help(),
 					new Craft(), new Bal(), new Sell(), new Recipes(), new Store(), new Buy()
-					  , new Use())
+					, new Use(), new JSONHashMapConverter(), new BattleManager(), new Daily(),
+					new Beg())
 			.build();
 		
 	}
@@ -54,6 +61,9 @@ public class Main {
 		Recipe.addRecipe(Item.TomatoSoup, "tomato_soup", Item.Soup, Item.Tomato, Item.Tomato, Item.Spices);
 		Recipe.addRecipe(Item.VegetableSoup, "vegetable_soup", Item.Water, Item.Oil, Item.Potato, Item.Tomato, Item.BetterLeaf);
 		Recipe.addRecipe(Item.MeatSoup, "meat_soup", Item.Water, Item.Oil, Item.Chicken, Item.Squid, Item.PrimeMeat);
+		Recipe.addRecipe(Item.SoupierSoup, "soupier_soup", Item.Water, Item.SoupEssence, Item.SoupFlower, Item.MysticalMushroom);
+		Recipe.addRecipe(Item.SeafoodSoup, "seafood_soup", Item.Water, Item.Water, Item.Anchovy, Item.Seaweed, Item.Seaweed, Item.Squid, Item.Spices, Item.Oil);
+		Recipe.addRecipe(Item.MushroomSoup, "mushroom_soup", Item.Soup, Item.Anchovy, Item.MysticalMushroom, Item.Oil, Item.Oil, Item.Spices);
 		
 	}
 
