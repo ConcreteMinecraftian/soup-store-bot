@@ -7,8 +7,48 @@ public class Account {
 	private int money;
 	private int area;
 	private ArrayList<Item> inventory = new ArrayList<Item>();
-	//private ArrayList<Soup> soup;
+	private Item[] deck = new Item[] {Item.NullItem,Item.NullItem,Item.NullItem,Item.NullItem,Item.NullItem,Item.NullItem};
+	private int win = 0;
+	private int lose = 0;
 	
+	public int getWin() {
+		return win;
+	}
+
+	public void setWin(int win) {
+		this.win = win;
+	}
+
+	public int getLose() {
+		return lose;
+	}
+
+	public void setLose(int lose) {
+		this.lose = lose;
+	}
+	
+	public String getWinToLoseRatio() {
+		return win + " : " + lose;
+	}
+
+	public Item[] getDeck() {
+		return deck;
+	}
+
+	public void setDeck(Item[] deck) {
+		this.deck = deck;
+	}
+	
+	public boolean addItemToDeck(int pos, Item item) {
+		
+		if(item.getType() != ItemType.Soup) return false;
+		else {
+			deck[pos] = item;
+			return true;
+		}
+		
+	}
+
 	public ArrayList<Item> getInventory() {
 		return inventory;
 	}
@@ -19,6 +59,12 @@ public class Account {
 	
 	public void addItemToInventory(Item item) {
 		inventory.add(item);
+	}
+	
+	public void addItemsToInventory(Item item, int count) {
+		for (int i = 0; i < count; i++) {
+			inventory.add(item);
+		}
 	}
 
 	public int getMoney() {

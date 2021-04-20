@@ -23,7 +23,8 @@ public enum Item {
 	(2050,"Meat_Soup",ItemType.Soup),ForestPermit(10000,"Forest_Permit",ItemType.Usable),
 	MysticalMushroom(150,"Mystical_Mushroom",ItemType.Material),SoupFlower(500,"Soup_Flower",
 	ItemType.Material),SoupEssence(1000,"Soup_Essence",ItemType.Material),Anchovy(250,"Anchovy",
-	ItemType.Material)
+	ItemType.Material),SoupierSoup(1900,"Soupier_Soup",ItemType.Soup),SeafoodSoup(1900,"Seafood_Soup",
+	ItemType.Soup),MushroomSoup(1850,"Mushroom_Soup",ItemType.Soup),NullItem(0,"No_Item",ItemType.Soup)
 	;
 	
 	private int sellprice;
