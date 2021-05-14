@@ -46,8 +46,19 @@ public class Help extends ListenerAdapter {
 				list2.addField(Main.PREFIX + "sell <item>", "Sell a thing.", true);
 				list2.addField(Main.PREFIX + "use <item>", "use a thing to get more things.", true);
 				list2.addField(Main.PREFIX + "recipes [page]", "Shows a recipe for a thing to craft.", true);
+				list2.addField(Main.PREFIX + "battle <args>", "Battle Commands.", true);
 				event.getChannel().sendMessage(list2.build()).queue();
 				list2.clear();
+				break;
+			case 3:
+				EmbedBuilder list3 = IEmbedBuilder.createDefaultBuild(Color.CYAN, "Help page " + page + ":-", "Commands:- ");
+				list3.addField(Main.PREFIX + "beg", "poor people do this.", true);
+				list3.addField(Main.PREFIX + "daily", "freeloaders do this.", true);		
+				list3.addField(Main.PREFIX + "give", "Give a guy an item. NOOB!", true);		
+				list3.addField(Main.PREFIX + "share", "The mrbeast commmand.", true);
+				list3.addField(Main.PREFIX + "event <args>", "Event Commands.", true);
+				event.getChannel().sendMessage(list3.build()).queue();
+				list3.clear();
 				break;
 			default:
 				EmbedBuilder error = IEmbedBuilder.createDefaultErrorBuild("This page does not exist.");

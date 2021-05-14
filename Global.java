@@ -1,6 +1,7 @@
 package com.concreteminecraftian.soupstorebot;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import com.concreteminecraftian.soupstorebot.economy.Item;
 
@@ -28,6 +29,14 @@ public class Global {
 		duplicates.clear();
 		return without;
 		
+	}
+
+	public static <T> T randomIn(Random r, ArrayList<T> list) {
+		try {
+			return list.get(r.nextInt(list.size()));
+		} catch(Exception e) {
+			return null;
+		}
 	}
 
 }
