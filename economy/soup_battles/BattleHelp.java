@@ -31,6 +31,9 @@ public class BattleHelp extends BattleCommand {
 			list.addField(Main.PREFIX + "battle deck", "Shows battle deck", true);
 			list.addField(Main.PREFIX + "battle deck set <place> <soup>", "Sets <place> item of deck to <soup>", true);
 			list.addField("Note:-", ".battle deck set <place> no_item doesnt require you to have the item.", false);
+			list.addField(Main.PREFIX + "battle stats <item>", "Shows the battle stats of any soup.", true);
+			list.addField(Main.PREFIX + "battle battle <person>", "Actually fight a person", true);
+			list.addField("Note:-", ".battle battle is disabled because of lag issues", false);
 			event.getChannel().sendMessage(list.build()).queue();
 			list.clear();
 			break;

@@ -72,6 +72,8 @@ public class BattleDeck extends BattleCommand {
 				Item it = Main.accounts.get(event.getMember().getIdLong()).getDeck()[i];
 				list.addField("Deck Item " + (i + 1), it.getName(), true);
 			}
+			int loss = (Main.accounts.get(event.getMember().getIdLong()).loss == 0) ? 1 : Main.accounts.get(event.getMember().getIdLong()).loss;
+			list.addField("Win to loss ratio:- ", ""+((double)Main.accounts.get(event.getMember().getIdLong()).win)/(double)loss, false);
 			
 			event.getChannel().sendMessage(list.build()).queue();
 			list.clear();

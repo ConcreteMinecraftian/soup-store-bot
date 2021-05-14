@@ -12,7 +12,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class BattleManager extends ListenerAdapter {
 
-	public List<BattleCommand> commands = Arrays.asList(new BattleHelp(),new BattleDeck());
+	public List<BattleCommand> commands = Arrays.asList(new BattleHelp(),new BattleDeck(),
+	new Battle(), new BattleStats());
 	
 	@Override
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
@@ -30,7 +31,10 @@ public class BattleManager extends ListenerAdapter {
 			String label = (args.length < 2) ? "help" : args[1];
 			
 			for(BattleCommand c : commands) {
-				if(c.getId().equalsIgnoreCase(label)) c.run(event, args);
+				if(c.getId().equalsIgnoreCase(label)) {
+					c.run(event, args);
+					return;
+				}
 			}
 			
 		}
