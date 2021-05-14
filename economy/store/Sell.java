@@ -32,6 +32,22 @@ public class Sell extends ListenerAdapter {
 				error.clear();
 			} else {
 				
+				if(args[1].equalsIgnoreCase("all")) {
+					int prev = Main.accounts.get(event.getMember().getIdLong()).getMoney();
+					for(int i = 0; i < Main.accounts.get(event.getMember().getIdLong()).getInventory().size(); i++) {
+						Item it = Main.accounts.get(event.getMember().getIdLong()).getInventory().get(i);
+						if(it.getType() == ItemType.Material) {
+							Main.accounts.get(event.getMember().getIdLong()).getInventory().remove(it);
+							Main.accounts.get(event.getMember().getIdLong()).addMoney(it.getSellprice());
+							i--;
+						}
+					}
+					EmbedBuilder success = IEmbedBuilder.createDefaultBuild(Color.GREEN, "Success!", "You successfully sold your inventory for " + (Main.accounts.get(event.getMember().getIdLong()).getMoney() - prev));
+					event.getChannel().sendMessage(success.build()).queue();
+					success.clear();
+					return;
+				}
+				
 				if(Item.getItemByName(args[1]) == null) {
 					EmbedBuilder error = IEmbedBuilder.createDefaultErrorBuild("Incorrect Item Name");
 					event.getChannel().sendMessage(error.build()).queue();
@@ -48,17 +64,33 @@ public class Sell extends ListenerAdapter {
 						error.clear();
 						return;
 					}
-					int count = Global.Amount(i, Main.accounts.get(event.getMember().getIdLong()).getInventory());
+					int numorg = 2;
+					try {numorg = (args.length < 3) ? Global.Amount(i, Main.accounts.get(event.getMember().getIdLong()).getInventory()) : Integer.parseInt(args[2]); }
+					catch(NumberFormatException e) {
+						EmbedBuilder error = IEmbedBuilder.createDefaultErrorBuild("Enter a number!");
+						event.getChannel().sendMessage(error.build()).queue();
+						error.clear();
+						return;
+					}
+					if(numorg >  Global.Amount(i, Main.accounts.get(event.getMember().getIdLong()).getInventory())) { 
+						EmbedBuilder error = IEmbedBuilder.createDefaultErrorBuild("You dont have this many!");
+						event.getChannel().sendMessage(error.build()).queue();
+						error.clear();
+						return;
+					}
+					int num = numorg;
 					for(int j = 0; j < Main.accounts.get(event.getMember().getIdLong()).getInventory().size(); j++) {
 						Item k = Main.accounts.get(event.getMember().getIdLong()).getInventory().get(j);
 						if(k.equals(i)) {
 							Main.accounts.get(event.getMember().getIdLong()).getInventory().remove(k);
 							j--;
+							numorg--;
+							if(numorg == 0) break;
 						}
 					}
-					Main.accounts.get(event.getMember().getIdLong()).addMoney(i.getSellprice() * count);
+					Main.accounts.get(event.getMember().getIdLong()).addMoney(i.getSellprice() * num);
 					
-					EmbedBuilder success = IEmbedBuilder.createDefaultBuild(Color.GREEN, "Success!", "You successfully sold " + count + "x " + Item.getItemByName(args[1]).getName() + "s for " + i.getSellprice() * count);
+					EmbedBuilder success = IEmbedBuilder.createDefaultBuild(Color.GREEN, "Success!", "You successfully sold " + num + "x " + Item.getItemByName(args[1]).getName() + "s for " + i.getSellprice() * num);
 					event.getChannel().sendMessage(success.build()).queue();
 					success.clear();
 					

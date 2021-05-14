@@ -14,7 +14,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class Buy extends ListenerAdapter {
 
-	private List<Item> shop = Arrays.asList(Item.Soup, Item.Salsa, Item.Mint, Item.Pork, Item.Spices, Item.Seaweed, Item.Oil, Item.ForestPermit);
+	private List<Item> shop = Arrays.asList(Item.Soup, Item.Salsa, Item.Mint, Item.Pork, Item.Spices, Item.Seaweed, Item.Oil, Item.ForestPermit, Item.FacilityPermit);
 	
 	@Override
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {

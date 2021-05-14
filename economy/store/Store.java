@@ -33,7 +33,7 @@ public class Store extends ListenerAdapter {
 			switch(page) {
 			
 			case 1:
-				EmbedBuilder list = IEmbedBuilder.createDefaultBuild(Color.CYAN, "Store page " + page + ":-", "Commands:- ");
+				EmbedBuilder list = IEmbedBuilder.createDefaultBuild(Color.CYAN, "Store page " + page + ":-", "");
 				list.addField("Soup - " + Item.Soup.getSellprice() * 2, "mmm soup.", true);
 				list.addField("Salsa - " + Item.Salsa.getSellprice() * 2, "spicy stuff. real shit.", true);
 				list.addField("Mint - " + Item.Mint.getSellprice() * 2, "mint.", true);
@@ -44,9 +44,10 @@ public class Store extends ListenerAdapter {
 				list.clear();
 				break;
 			case 2:
-				EmbedBuilder list2 = IEmbedBuilder.createDefaultBuild(Color.CYAN, "Store page " + page + ":-", "Commands:- ");
+				EmbedBuilder list2 = IEmbedBuilder.createDefaultBuild(Color.CYAN, "Store page " + page + ":-", "");
 				list2.addField("Oil - " + Item.Oil.getSellprice() * 2, "dont call the usa.", true);
 				list2.addField("Forest Permit - " + Item.ForestPermit.getSellprice() * 2, "gives you access to evergreen forest area of .forage on .use.", true);
+				list2.addField("Facility Permit - " + Item.FacilityPermit.getSellprice() * 2, "gives you access to facility outskirts area of .forage on .use.", true);
 				event.getChannel().sendMessage(list2.build()).queue();
 				list2.clear();
 				break;
