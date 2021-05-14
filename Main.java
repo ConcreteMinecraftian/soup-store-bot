@@ -49,7 +49,7 @@ public class Main {
 		// TODO: add back cooldown once bot hosted
 		
 		// Init
-		reference = JDABuilder.createDefault("ODI5OTgzNDM4MjYxMDU5NjA0.YHAEUA.9hcjeEZH4IbAMrvU1HzH-kuEz-I")
+		reference = JDABuilder.createDefault(sike)
 			.setStatus(OnlineStatus.ONLINE)
 			.setActivity(Activity.playing(".help"))
 			.addEventListeners(new Register(), new Forage(), new Inventory(), new Help(),
