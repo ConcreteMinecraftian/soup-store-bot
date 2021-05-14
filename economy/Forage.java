@@ -43,6 +43,7 @@ public class Forage extends ListenerAdapter {
 						@Override
 						public void run() {
 							oncooldown.remove(event.getMember().getIdLong());
+							this.cancel();
 						}
 					}, 1000*5*60);
 				}
@@ -77,6 +78,8 @@ public class Forage extends ListenerAdapter {
 					if(r.nextInt(1000) > 100) get.add(Item.Water);
 					if(r.nextInt(1000) > 500) get.add(Item.Water);
 					if(r.nextInt(1000) > 950) get.add(Item.Water);
+					
+					if(r.nextInt(1000) > 500) get.add(Item.Bread);
 				
 					if(r.nextInt(1000) > 100) get.add(Item.Clam);
 					if(r.nextInt(1000) > 500) get.add(Item.Squid);
@@ -87,6 +90,67 @@ public class Forage extends ListenerAdapter {
 					if(r.nextInt(1000) > 500) get.add(Item.SoupFlower);
 					if(r.nextInt(1000) > 900) get.add(Item.Anchovy);
 					if(r.nextInt(1000) > 950) get.add(Item.SoupEssence);
+					break;
+				case 3:
+					if(r.nextInt(1000) > 100) get.add(Item.Leaf);
+					if(r.nextInt(1000) > 500) get.add(Item.Potato);
+					if(r.nextInt(1000) > 900) get.add(Item.Tomato);
+					if(r.nextInt(1000) > 950) get.add(Item.BetterLeaf);
+				
+					if(r.nextInt(1000) > 100) get.add(Item.Water);
+					if(r.nextInt(1000) > 500) get.add(Item.Water);
+					if(r.nextInt(1000) > 950) get.add(Item.Water);
+					
+					if(r.nextInt(1000) > 100) get.add(Item.Bread);
+					if(r.nextInt(1000) > 500) get.add(Item.Bread);
+				
+					if(r.nextInt(1000) > 100) get.add(Item.Clam);
+					if(r.nextInt(1000) > 500) get.add(Item.Squid);
+					if(r.nextInt(1000) > 900) get.add(Item.Chicken);
+					if(r.nextInt(1000) > 950) get.add(Item.PrimeMeat);
+
+					if(r.nextInt(1000) > 100) get.add(Item.MysticalMushroom);
+					if(r.nextInt(1000) > 500) get.add(Item.SoupFlower);
+					if(r.nextInt(1000) > 900) get.add(Item.Anchovy);
+					if(r.nextInt(1000) > 950) get.add(Item.SoupEssence);
+					
+					if(r.nextInt(1000) > 100) get.add(Item.Oil);
+					if(r.nextInt(1000) > 500) get.add(Item.Seaweed);
+					if(r.nextInt(1000) > 975) get.add(Item.Soup);
+					if(r.nextInt(1000) > 999) get.add(Item.Scrap);
+					break;
+				case 4:
+					if(r.nextInt(1000) > 100) get.add(Item.Leaf);
+					if(r.nextInt(1000) > 500) get.add(Item.Potato);
+					if(r.nextInt(1000) > 900) get.add(Item.Tomato);
+					if(r.nextInt(1000) > 950) get.add(Item.BetterLeaf);
+				
+					if(r.nextInt(1000) > 100) get.add(Item.Water);
+					if(r.nextInt(1000) > 500) get.add(Item.Water);
+					if(r.nextInt(1000) > 950) get.add(Item.Water);
+					
+					if(r.nextInt(1000) > 100) get.add(Item.Bread);
+					if(r.nextInt(1000) > 500) get.add(Item.Bread);
+				
+					if(r.nextInt(1000) > 100) get.add(Item.Clam);
+					if(r.nextInt(1000) > 500) get.add(Item.Squid);
+					if(r.nextInt(1000) > 900) get.add(Item.Chicken);
+					if(r.nextInt(1000) > 950) get.add(Item.PrimeMeat);
+
+					if(r.nextInt(1000) > 100) get.add(Item.MysticalMushroom);
+					if(r.nextInt(1000) > 500) get.add(Item.SoupFlower);
+					if(r.nextInt(1000) > 900) get.add(Item.Anchovy);
+					if(r.nextInt(1000) > 950) get.add(Item.SoupEssence);
+					
+					if(r.nextInt(1000) > 100) get.add(Item.Oil);
+					if(r.nextInt(1000) > 500) get.add(Item.Seaweed);
+					if(r.nextInt(1000) > 975) get.add(Item.Soup);
+					if(r.nextInt(1000) > 999) get.add(Item.Scrap);
+					
+					if(r.nextInt(1000) > 100) get.add(Item.Oil);
+					if(r.nextInt(1000) > 500) get.add(Item.Copper);
+					if(r.nextInt(1000) > 750) get.add(Item.SpiceOre);
+					if(r.nextInt(1000) > 850) get.add(Item.SoupGem);
 					break;
 				
 				}

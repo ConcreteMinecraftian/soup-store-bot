@@ -8,28 +8,8 @@ public class Account {
 	private int area;
 	private ArrayList<Item> inventory = new ArrayList<Item>();
 	private Item[] deck = new Item[] {Item.NullItem,Item.NullItem,Item.NullItem,Item.NullItem,Item.NullItem,Item.NullItem};
-	private int win = 0;
-	private int lose = 0;
-	
-	public int getWin() {
-		return win;
-	}
-
-	public void setWin(int win) {
-		this.win = win;
-	}
-
-	public int getLose() {
-		return lose;
-	}
-
-	public void setLose(int lose) {
-		this.lose = lose;
-	}
-	
-	public String getWinToLoseRatio() {
-		return win + " : " + lose;
-	}
+	public int win = 0;
+	public int loss = 0;
 
 	public Item[] getDeck() {
 		return deck;
@@ -94,6 +74,18 @@ public class Account {
 		a.setArea(1);
 		
 		return a;
+	}
+	
+	public ItemStats stats() {
+		
+		ItemStats stats = new ItemStats();
+		stats.createStats(20, 20, 20, 5, 5, 50);
+		
+		for(Item i : deck) {
+			stats.addStats(Item.getStats(i));
+		}
+		
+		return stats;
 	}
 	
 }

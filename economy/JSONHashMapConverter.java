@@ -63,6 +63,7 @@ public class JSONHashMapConverter extends ListenerAdapter {
 					}
 					
 				}
+				event.getChannel().sendMessage("Done saving").queue();
 				
 			}
 			
@@ -76,6 +77,8 @@ public class JSONHashMapConverter extends ListenerAdapter {
 		JSONObject obj = new JSONObject();
 		obj.put("area", a.getArea());
 		obj.put("money", a.getMoney());
+		obj.put("win", a.win);
+		obj.put("loss", a.loss);
 		JSONObject inv = new JSONObject();
 		for(Item i : Global.RemoveDuplicates(a.getInventory())) {
 			inv.put(i.getName(), Global.Amount(i, a.getInventory()));
@@ -96,6 +99,8 @@ public class JSONHashMapConverter extends ListenerAdapter {
 		Account a = new Account();
 		a.setMoney(Integer.parseInt(json.get("money").toString()));
 		a.setArea(Integer.parseInt(json.get("area").toString()));
+		a.win = Integer.parseInt(json.get("win").toString());
+		a.loss = Integer.parseInt(json.get("loss").toString());
 		for(Object i : ((JSONObject) json.get("inventory")).keySet()) {
 			a.addItemsToInventory(Item.getItemByName(i.toString()),Integer.parseInt(((JSONObject) json.get("inventory")).get(i).toString()));
 		}

@@ -45,6 +45,7 @@ public class Daily extends ListenerAdapter {
 						@Override
 						public void run() {
 							cooldown.remove(event.getMember().getIdLong());
+							this.cancel();
 						}
 					}, 1000*60*60*24);
 				}

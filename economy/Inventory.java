@@ -18,7 +18,7 @@ public class Inventory extends ListenerAdapter {
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
-		if(args[0].equalsIgnoreCase(Main.PREFIX + "inventory")) {
+		if(args[0].equalsIgnoreCase(Main.PREFIX + "inventory") || args[0].equalsIgnoreCase(Main.PREFIX + "inv")) {
 			
 			if(!Main.accounts.containsKey(event.getMember().getIdLong())) {
 				EmbedBuilder error = IEmbedBuilder.createDefaultErrorBuild("Register by .register first");
